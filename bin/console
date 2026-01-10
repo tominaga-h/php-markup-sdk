@@ -8,6 +8,7 @@ use Hytmng\MarkupSdk\Token\TextToken;
 use Hytmng\MarkupSdk\Token\SpaceToken;
 use Hytmng\MarkupSdk\Token\HashToken;
 use Hytmng\MarkupSdk\Token\AsteriskToken;
+use Hytmng\MarkupSdk\Token\NewlineToken;
 
 $lexer = new Lexer();
 $lexer->registerTokens([
@@ -15,6 +16,7 @@ $lexer->registerTokens([
     new SpaceToken(),
     new HashToken(),
     new AsteriskToken(),
+    new NewlineToken(),
 ]);
 
 $input = "# Hello, World!\n* list1\n* list2";
