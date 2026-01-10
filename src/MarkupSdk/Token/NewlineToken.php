@@ -14,7 +14,7 @@ class NewlineToken extends AbstractToken
 
     public function getPattern(): string
     {
-        return '/^\n/';
+        return '/^\R/'; // \R は任意の改行文字にマッチする正規表現
     }
 
 }
