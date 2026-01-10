@@ -2,6 +2,10 @@
 
 namespace Hytmng\MarkupSdk\Token;
 
+/**
+ * 字句解析(Lexer)で使用するトークンのインターフェース
+ * Interface for tokens used in lexical analysis (Lexer)
+ */
 interface TokenInterface {
     /**
      * トークンを抽出するための正規表現パターンを返す（例: "/^#/"）
