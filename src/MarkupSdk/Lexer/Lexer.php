@@ -12,7 +12,7 @@ class Lexer
 
     public function __construct()
     {
-
+        $this->tokens = [];
     }
 
     /**
