@@ -9,6 +9,10 @@ use Hytmng\MarkupSdk\Token\SpaceToken;
 use Hytmng\MarkupSdk\Token\HashToken;
 use Hytmng\MarkupSdk\Token\AsteriskToken;
 use Hytmng\MarkupSdk\Token\NewlineToken;
+use Hytmng\MarkupSdk\Parser\Parser;
+use Hytmng\MarkupSdk\Parser\TokenStream;
+use Hytmng\MarkupSdk\Ast\Interpreter\HeadingInterpreter;
+use Hytmng\MarkupSdk\Ast\Interpreter\TextInterpreter;
 
 $lexer = new Lexer();
 $lexer->registerTokens([
@@ -19,6 +23,15 @@ $lexer->registerTokens([
     new NewlineToken(),
 ]);
 
-$input = "# Hello, World!\n* list1\n* list2";
+$input = "# Hello, World!\naaa";
 $tokens = $lexer->tokenize($input);
 print_r($tokens);
+
+$parser = new Parser();
+$parser->registerInterpreters([
+    new HeadingInterpreter(),
+    new TextInterpreter(),
+]);
+
+$document = $parser->parse(new TokenStream($tokens));
+print_r($document);
