@@ -1,11 +1,11 @@
 {
     "name": "hytmng/php-markup-sdk",
-    "description": "",
+    "description": "A SDK for creating your own markup language",
+    "version": "0.0.1",
     "type": "project",
     "license": "MIT",
     "keywords": [
     ],
-    "homepage": "",
     "authors": [
         {
             "name": "Tominaga Hayato"
@@ -14,6 +14,7 @@
     "bin": [""],
     "autoload": {
         "psr-4": {
+            "Hytmng\\MarkupSdk\\": "src/"
         }
     },
     "autoload-dev": {
