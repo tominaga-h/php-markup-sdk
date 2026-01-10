@@ -26,7 +26,7 @@
 
 ### B. Token (字句)
 
-- **TokenInterface**: `getPattern()`, `getValue()`, `getSymbol()` を定義。
+- **TokenInterface**: `getPattern()`, `getValue()`, `setValue()`, `getDescription()` を定義。
 
 - **役割**: 意味を持たない純粋な文字情報のコンテナ。
 
