@@ -1,0 +1,22 @@
+#!/usr/bin/env php
+<?php
+
+require_once __DIR__ . '/../vendor/autoload.php';
+
+use Hytmng\MarkupSdk\Lexer\Lexer;
+use Hytmng\MarkupSdk\Token\TextToken;
+use Hytmng\MarkupSdk\Token\SpaceToken;
+use Hytmng\MarkupSdk\Token\HashToken;
+use Hytmng\MarkupSdk\Token\AsteriskToken;
+
+$lexer = new Lexer();
+$lexer->registerTokens([
+    new TextToken(),
+    new SpaceToken(),
+    new HashToken(),
+    new AsteriskToken(),
+]);
+
+$input = "# Hello, World!\n* list1\n* list2";
+$tokens = $lexer->tokenize($input);
+print_r($tokens);

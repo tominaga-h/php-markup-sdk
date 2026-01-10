@@ -14,7 +14,7 @@
     "bin": [""],
     "autoload": {
         "psr-4": {
-            "Hytmng\\MarkupSdk\\": "src/"
+            "Hytmng\\MarkupSdk\\": "src/MarkupSdk/"
         }
     },
     "autoload-dev": {

@@ -12,7 +12,7 @@ class HashToken extends AbstractToken
         return 'ハッシュ(#)記号のトークン';
     }
 
-    public static function getPattern(): string
+    public function getPattern(): string
     {
         return '/^#/';
     }

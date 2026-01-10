@@ -12,7 +12,7 @@ class TextToken extends AbstractToken
         return 'どのトークンにも当てはまらない文字列のトークン';
     }
 
-    public static function getPattern(): string
+    public function getPattern(): string
     {
         return ''; // 特殊なトークンのためパターンは不要
     }

@@ -7,7 +7,7 @@ interface TokenInterface {
      * トークンを抽出するための正規表現パターンを返す（例: "/^#/"）
      * Returns the regular expression pattern for extracting the token (e.g., "/^#/")
      */
-    public static function getPattern(): string;
+    public function getPattern(): string;
 
     /**
      * トークンの実際の値（文字列）を返す

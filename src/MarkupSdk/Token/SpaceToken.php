@@ -12,7 +12,7 @@ class SpaceToken extends AbstractToken
         return '半角スペース( )のトークン';
     }
 
-    public static function getPattern(): string
+    public function getPattern(): string
     {
         return '/^ /';
     }

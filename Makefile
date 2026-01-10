@@ -4,7 +4,7 @@ up:
 	docker-compose up -d
 down:
 	docker-compose down --remove-orphans
-bash:
+shell:
 	docker exec -it $(CONTAINER_NAME) bash
 install:
 	docker exec -it $(CONTAINER_NAME) composer install
