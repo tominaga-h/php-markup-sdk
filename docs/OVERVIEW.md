@@ -44,7 +44,19 @@
 
 ### D. AST (抽象構文木)
 
-- **BaseNode**: 全てのノードの基底クラス。`$attributes` による柔軟なデータ保持と、`$children` による親子関係の管理。
+- **NodeInterface**: 全てのノードが実装すべきインターフェース。
+
+  - `getType()`: ノードの種類を返す（例: "heading", "text"）
+  - `setAttribute() / getAttribute()`: 属性の設定・取得
+  - `getAttributeSchema()`: 許可する属性名と型のマップを定義
+  - `addChild() / getChildren()`: 子ノードの追加・取得
+  - `toHtml()`: ノードをHTML文字列に変換
+
+- **BaseNode**: 全てのノードの基底クラス。
+
+  - `$attributes` による柔軟なデータ保持と、`$children` による親子関係の管理
+  - `setAttribute()` 時に `getAttributeSchema()` に基づく属性名・型のバリデーションを実施
+  - `renderChildren()`: 子要素の `toHtml()` を結合して返すヘルパーメソッド
 
 - **DocumentNode**: ツリーのルートとなる特殊なノード。
 
@@ -54,9 +66,13 @@
 
 2. **Node 定義**: `BaseNode` を継承して、構造体（例：`HeadingNode`）を作成。
 
+   - `getType()`: ノードの種類を返す
+   - `getAttributeSchema()`: 許可する属性名と型のマップを定義（例：`['level' => 'integer']`）
+   - `toHtml()`: ノードをHTML文字列に変換するロジックを実装
+
 3. **Interpreter 実装**: `InterpretInterface` を実装し、「`#` が N 個続いたら `HeadingNode` にする」といった解釈ロジックを記述。
 
-4. **登録と実行**: SDK の Engine に上記を登録し、文字列を入力して AST を得る。
+4. **登録と実行**: SDK の Engine に上記を登録し、文字列を入力して AST を得る。`toHtml()` を呼び出すことで、ASTからHTMLを出力可能。
 
 ## 5. 設計上の重要ルール
 
