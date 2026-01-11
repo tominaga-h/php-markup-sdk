@@ -10,4 +10,10 @@ class TextNode extends BaseNode
     {
         return 'text';
     }
+
+    public function toHtml(): string
+    {
+        // エスケープして返す。 Return escaped HTML.
+        return htmlspecialchars($this->getAttribute('content') ?? '', ENT_QUOTES, 'UTF-8');
+    }
 }

@@ -10,4 +10,16 @@ class HeadingNode extends BaseNode
     {
         return 'heading';
     }
+
+    public function toHtml(): string
+    {
+        $level = $this->getAttribute('level') ?? 1;
+        $content = "";
+
+        foreach ($this->children as $child) {
+            $content .= $child->toHtml();
+        }
+
+        return "<h{$level}>{$content}</h{$level}>\n";
+    }
 }

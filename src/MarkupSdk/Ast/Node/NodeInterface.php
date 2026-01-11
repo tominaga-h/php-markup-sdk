@@ -37,4 +37,10 @@ interface NodeInterface {
      * @return NodeInterface[]
      */
     public function getChildren(): array;
+
+    /**
+     * ノードをHTMLに変換する
+     * Converts the node to HTML
+     */
+    public function toHtml(): string;
 }

@@ -32,9 +32,7 @@ abstract class BaseNode implements NodeInterface {
         return $this->children;
     }
 
-    /**
-     * 各具象クラスで独自の型名を返す必要がある
-     * Each concrete class must return its own type name
-     */
     abstract public function getType(): string;
+
+    abstract public function toHtml(): string;
 }
