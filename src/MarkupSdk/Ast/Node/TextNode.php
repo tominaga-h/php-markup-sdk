@@ -11,6 +11,13 @@ class TextNode extends BaseNode
         return 'text';
     }
 
+    public function getAttributeSchema(): array
+    {
+        return [
+            'content' => 'string',
+        ];
+    }
+
     public function toHtml(): string
     {
         // エスケープして返す。 Return escaped HTML.

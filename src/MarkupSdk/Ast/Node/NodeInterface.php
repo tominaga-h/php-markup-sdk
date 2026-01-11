@@ -26,6 +26,12 @@ interface NodeInterface {
     public function getAttribute(string $key): mixed;
 
     /**
+     * 許可する属性名と型のマップを定義する
+     * Define a map of allowed attribute names and types
+     */
+    public function getAttributeSchema(): array;
+
+    /**
      * 子ノードを追加する
      * Adds a child node
      */

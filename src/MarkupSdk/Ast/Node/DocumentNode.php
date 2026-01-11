@@ -14,4 +14,14 @@ class DocumentNode extends BaseNode
     {
         return "document";
     }
+
+    public function getAttributeSchema(): array
+    {
+        return [];
+    }
+
+    public function toHtml(): string
+    {
+        return $this->renderChildren();
+    }
 }
