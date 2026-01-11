@@ -1,0 +1,35 @@
+---
+alwaysApply: true
+---
+
+# 開発コマンド一覧
+
+## Docker 操作（Makefile を使用）
+
+| コマンド       | 説明                                      |
+| -------------- | ----------------------------------------- |
+| `make up`      | Docker コンテナを起動（バックグラウンド） |
+| `make down`    | Docker コンテナを停止・削除               |
+| `make shell`   | コンテナ内で bash を実行                  |
+| `make install` | composer install を実行                   |
+| `make test`    | PHPUnit テストを実行                      |
+| `make php`     | PHP 対話モード（REPL）を起動              |
+| `make push`    | テスト実行後に git push を実行            |
+
+## composer scripts
+
+| コマンド                   | 説明                     |
+| -------------------------- | ------------------------ |
+| `composer test`            | PHPUnit テストを実行     |
+| `composer upload-coverage` | カバレッジをアップロード |
+
+composer系のコマンドを実施する場合は、必ずDockerコンテナ上で実施すること。ローカルではcomposerが実行できません。
+
+## コンテナ名
+
+`php-markup-sdk-php-1`
+
+## 直接実行（コンテナ内）
+
+- `./vendor/bin/phpunit` - テスト実行
+- `php bin/console` - サンプル実行用エントリーポイント
