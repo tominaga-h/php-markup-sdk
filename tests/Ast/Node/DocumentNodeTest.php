@@ -8,7 +8,7 @@ use PHPUnit\Framework\TestCase;
 use PHPUnit\Framework\Attributes\Test;
 use Hytmng\MarkupSdk\Ast\Node\DocumentNode;
 use Hytmng\MarkupSdk\Ast\Node\TextNode;
-use Hytmng\MarkupSdk\Ast\Node\HeadingNode;
+use Hytmng\MarkupSdk\Ast\Node\Markdown\HeadingNode;
 
 class DocumentNodeTest extends TestCase
 {

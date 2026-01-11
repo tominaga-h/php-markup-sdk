@@ -14,9 +14,9 @@ use Hytmng\MarkupSdk\Token\SpaceToken;
 use Hytmng\MarkupSdk\Token\NewlineToken;
 use Hytmng\MarkupSdk\Token\AsteriskToken;
 use Hytmng\MarkupSdk\Ast\Node\DocumentNode;
-use Hytmng\MarkupSdk\Ast\Node\HeadingNode;
+use Hytmng\MarkupSdk\Ast\Node\Markdown\HeadingNode;
 use Hytmng\MarkupSdk\Ast\Node\TextNode;
-use Hytmng\MarkupSdk\Ast\Interpreter\HeadingInterpreter;
+use Hytmng\MarkupSdk\Ast\Interpreter\Markdown\HeadingInterpreter;
 use Hytmng\MarkupSdk\Ast\Interpreter\TextInterpreter;
 
 class MarkupParsingTest extends TestCase

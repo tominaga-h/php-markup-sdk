@@ -1,10 +1,10 @@
 <?php
 
-namespace Hytmng\MarkupSdk\Ast\Interpreter;
+namespace Hytmng\MarkupSdk\Ast\Interpreter\Markdown;
 
 use Hytmng\MarkupSdk\Parser\TokenStream;
 use Hytmng\MarkupSdk\Parser\ParserContext;
-use Hytmng\MarkupSdk\Ast\Node\HeadingNode;
+use Hytmng\MarkupSdk\Ast\Node\Markdown\HeadingNode;
 use Hytmng\MarkupSdk\Ast\Node\NodeInterface;
 use Hytmng\MarkupSdk\Ast\Interpreter\InterpreterInterface;
 use Hytmng\MarkupSdk\Token\HashToken;
@@ -88,3 +88,4 @@ class HeadingInterpreter implements InterpreterInterface {
         return 100;
     }
 }
+

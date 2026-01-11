@@ -13,9 +13,9 @@ use Hytmng\MarkupSdk\Token\SpaceToken;
 use Hytmng\MarkupSdk\Token\TextToken;
 use Hytmng\MarkupSdk\Token\NewlineToken;
 use Hytmng\MarkupSdk\Ast\Node\DocumentNode;
-use Hytmng\MarkupSdk\Ast\Node\HeadingNode;
+use Hytmng\MarkupSdk\Ast\Node\Markdown\HeadingNode;
 use Hytmng\MarkupSdk\Ast\Node\TextNode;
-use Hytmng\MarkupSdk\Ast\Interpreter\HeadingInterpreter;
+use Hytmng\MarkupSdk\Ast\Interpreter\Markdown\HeadingInterpreter;
 use Hytmng\MarkupSdk\Ast\Interpreter\TextInterpreter;
 
 class ParserTest extends TestCase

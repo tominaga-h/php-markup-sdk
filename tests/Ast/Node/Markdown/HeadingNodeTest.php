@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Tests\Ast\Node;
+namespace Tests\Ast\Node\Markdown;
 
 use PHPUnit\Framework\TestCase;
 use PHPUnit\Framework\Attributes\Test;
-use Hytmng\MarkupSdk\Ast\Node\HeadingNode;
+use Hytmng\MarkupSdk\Ast\Node\Markdown\HeadingNode;
 use Hytmng\MarkupSdk\Ast\Node\TextNode;
 
 class HeadingNodeTest extends TestCase
@@ -98,3 +98,4 @@ class HeadingNodeTest extends TestCase
         $this->assertCount(0, $heading->getChildren());
     }
 }
+

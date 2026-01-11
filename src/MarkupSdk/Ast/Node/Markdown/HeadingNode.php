@@ -1,6 +1,6 @@
 <?php
 
-namespace Hytmng\MarkupSdk\Ast\Node;
+namespace Hytmng\MarkupSdk\Ast\Node\Markdown;
 
 use Hytmng\MarkupSdk\Ast\Node\BaseNode;
 
@@ -23,3 +23,4 @@ class HeadingNode extends BaseNode
         return "<h{$level}>" . $this->renderChildren() . "</h{$level}>\n";
     }
 }
+

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Tests\Ast\Interpreter;
+namespace Tests\Ast\Interpreter\Markdown;
 
 use PHPUnit\Framework\TestCase;
 use PHPUnit\Framework\Attributes\Test;
@@ -13,8 +13,8 @@ use Hytmng\MarkupSdk\Token\HashToken;
 use Hytmng\MarkupSdk\Token\SpaceToken;
 use Hytmng\MarkupSdk\Token\TextToken;
 use Hytmng\MarkupSdk\Token\NewlineToken;
-use Hytmng\MarkupSdk\Ast\Node\HeadingNode;
-use Hytmng\MarkupSdk\Ast\Interpreter\HeadingInterpreter;
+use Hytmng\MarkupSdk\Ast\Node\Markdown\HeadingNode;
+use Hytmng\MarkupSdk\Ast\Interpreter\Markdown\HeadingInterpreter;
 use Hytmng\MarkupSdk\Ast\Interpreter\TextInterpreter;
 
 class HeadingInterpreterTest extends TestCase
@@ -221,3 +221,4 @@ class HeadingInterpreterTest extends TestCase
         $this->assertSame('Next line', $stream->current()->getValue());
     }
 }
+
