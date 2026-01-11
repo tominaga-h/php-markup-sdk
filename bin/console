@@ -14,6 +14,7 @@ use Hytmng\MarkupSdk\Parser\Parser;
 use Hytmng\MarkupSdk\Parser\TokenStream;
 use Hytmng\MarkupSdk\Ast\Interpreter\Markdown\HeadingInterpreter;
 use Hytmng\MarkupSdk\Ast\Interpreter\Markdown\ListInterpreter;
+use Hytmng\MarkupSdk\Ast\Interpreter\Markdown\BoldInterpreter;
 use Hytmng\MarkupSdk\Ast\Interpreter\TextInterpreter;
 
 $lexer = new Lexer();
@@ -26,7 +27,7 @@ $lexer->registerTokens([
     new NewlineToken(),
 ]);
 
-$input = "# Hello, World!\n- aaa\n* bbb\n- ccc";
+$input = "# Hello, **World**";
 echo "input: $input\n";
 $tokens = $lexer->tokenize($input);
 print_r($tokens);
@@ -37,6 +38,7 @@ $parser->registerInterpreters([
     new TextInterpreter(),
     new HeadingInterpreter(),
     new ListInterpreter(),
+    new BoldInterpreter(),
 ]);
 
 $document = $parser->parse(new TokenStream($tokens));
