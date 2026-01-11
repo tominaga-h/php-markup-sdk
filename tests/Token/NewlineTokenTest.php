@@ -18,6 +18,14 @@ class NewlineTokenTest extends TestCase
     }
 
     #[Test]
+    public function canMatchNewlineAtBeginning(): void
+    {
+        $token = new NewlineToken();
+        $this->assertSame(preg_match($token->getPattern(), "\n hello"), 1);
+        $this->assertSame(preg_match($token->getPattern(), 'hello \n'), 0);
+    }
+
+    #[Test]
     public function descriptionIsCorrect(): void
     {
         $token = new NewlineToken();

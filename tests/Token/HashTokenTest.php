@@ -18,6 +18,14 @@ class HashTokenTest extends TestCase
     }
 
     #[Test]
+    public function canMatchHashAtBeginning(): void
+    {
+        $token = new HashToken();
+        $this->assertSame(preg_match($token->getPattern(), '# hello'), 1);
+        $this->assertSame(preg_match($token->getPattern(), 'hello #'), 0);
+    }
+
+    #[Test]
     public function descriptionIsCorrect(): void
     {
         $token = new HashToken();

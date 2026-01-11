@@ -18,6 +18,14 @@ class HyphenTokenTest extends TestCase
     }
 
     #[Test]
+    public function canMatchHyphenAtBeginning(): void
+    {
+        $token = new HyphenToken();
+        $this->assertSame(preg_match($token->getPattern(), '- hello'), 1);
+        $this->assertSame(preg_match($token->getPattern(), 'hello -'), 0);
+    }
+
+    #[Test]
     public function descriptionIsCorrect(): void
     {
         $token = new HyphenToken();

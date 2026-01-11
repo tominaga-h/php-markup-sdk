@@ -18,6 +18,14 @@ class AsteriskTokenTest extends TestCase
     }
 
     #[Test]
+    public function canMatchAsteriskAtBeginning(): void
+    {
+        $token = new AsteriskToken();
+        $this->assertSame(preg_match($token->getPattern(), '* hello'), 1);
+        $this->assertSame(preg_match($token->getPattern(), 'hello *'), 0);
+    }
+
+    #[Test]
     public function descriptionIsCorrect(): void
     {
         $token = new AsteriskToken();

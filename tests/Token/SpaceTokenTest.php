@@ -18,6 +18,14 @@ class SpaceTokenTest extends TestCase
     }
 
     #[Test]
+    public function canMatchSpaceAtBeginning(): void
+    {
+        $token = new SpaceToken();
+        $this->assertSame(preg_match($token->getPattern(), ' hello'), 1);
+        $this->assertSame(preg_match($token->getPattern(), 'hello '), 0);
+    }
+
+    #[Test]
     public function descriptionIsCorrect(): void
     {
         $token = new SpaceToken();
