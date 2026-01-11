@@ -48,20 +48,20 @@ class DocumentNodeTest extends TestCase
     }
 
     #[Test]
-    public function canSetAndGetAttribute(): void
+    public function throwsExceptionWhenSettingAnyAttribute(): void
     {
         $document = new DocumentNode();
-        $document->setAttribute('title', 'My Document');
 
-        $this->assertSame('My Document', $document->getAttribute('title'));
+        $this->expectException(\InvalidArgumentException::class);
+        $document->setAttribute('title', 'My Document');
     }
 
     #[Test]
-    public function getNonExistentAttributeReturnsNull(): void
+    public function schemaIsEmpty(): void
     {
         $document = new DocumentNode();
 
-        $this->assertNull($document->getAttribute('nonexistent'));
+        $this->assertSame([], $document->getAttributeSchema());
     }
 
     #[Test]

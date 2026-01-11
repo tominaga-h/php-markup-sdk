@@ -55,23 +55,39 @@ class HeadingNodeTest extends TestCase
     }
 
     #[Test]
-    public function canSetMultipleAttributes(): void
+    public function canOverwriteAttribute(): void
     {
         $heading = new HeadingNode();
         $heading->setAttribute('level', 2);
-        $heading->setAttribute('id', 'section-1');
+        $heading->setAttribute('level', 3);
 
-        $this->assertSame(2, $heading->getAttribute('level'));
-        $this->assertSame('section-1', $heading->getAttribute('id'));
+        $this->assertSame(3, $heading->getAttribute('level'));
     }
 
     #[Test]
-    public function getNonExistentAttributeReturnsNull(): void
+    public function throwsExceptionWhenSettingInvalidAttribute(): void
+    {
+        $heading = new HeadingNode();
+
+        $this->expectException(\InvalidArgumentException::class);
+        $heading->setAttribute('id', 'section-1');
+    }
+
+    #[Test]
+    public function throwsExceptionWhenAttributeTypeIsInvalid(): void
+    {
+        $heading = new HeadingNode();
+
+        $this->expectException(\InvalidArgumentException::class);
+        $heading->setAttribute('level', 'not-an-integer');
+    }
+
+    #[Test]
+    public function getUnsetAttributeReturnsNull(): void
     {
         $heading = new HeadingNode();
 
         $this->assertNull($heading->getAttribute('level'));
-        $this->assertNull($heading->getAttribute('nonexistent'));
     }
 
     #[Test]

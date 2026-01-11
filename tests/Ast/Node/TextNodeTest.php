@@ -45,23 +45,39 @@ class TextNodeTest extends TestCase
     }
 
     #[Test]
-    public function canSetMultipleAttributes(): void
+    public function canOverwriteAttribute(): void
     {
         $node = new TextNode();
         $node->setAttribute('content', 'Sample text');
-        $node->setAttribute('bold', true);
+        $node->setAttribute('content', 'Updated text');
 
-        $this->assertSame('Sample text', $node->getAttribute('content'));
-        $this->assertTrue($node->getAttribute('bold'));
+        $this->assertSame('Updated text', $node->getAttribute('content'));
     }
 
     #[Test]
-    public function getNonExistentAttributeReturnsNull(): void
+    public function throwsExceptionWhenSettingInvalidAttribute(): void
+    {
+        $node = new TextNode();
+
+        $this->expectException(\InvalidArgumentException::class);
+        $node->setAttribute('bold', true);
+    }
+
+    #[Test]
+    public function throwsExceptionWhenAttributeTypeIsInvalid(): void
+    {
+        $node = new TextNode();
+
+        $this->expectException(\InvalidArgumentException::class);
+        $node->setAttribute('content', 12345);
+    }
+
+    #[Test]
+    public function getUnsetAttributeReturnsNull(): void
     {
         $node = new TextNode();
 
         $this->assertNull($node->getAttribute('content'));
-        $this->assertNull($node->getAttribute('nonexistent'));
     }
 
     #[Test]
