@@ -26,6 +26,7 @@ $lexer->registerTokens([
 $input = "# Hello, World!\naaa";
 $tokens = $lexer->tokenize($input);
 print_r($tokens);
+echo "--------------------------------\n";
 
 $parser = new Parser();
 $parser->registerInterpreters([
@@ -35,3 +36,5 @@ $parser->registerInterpreters([
 
 $document = $parser->parse(new TokenStream($tokens));
 print_r($document);
+echo "--------------------------------\n";
+var_dump($document->toHtml());
