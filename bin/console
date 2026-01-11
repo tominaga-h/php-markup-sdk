@@ -8,10 +8,12 @@ use Hytmng\MarkupSdk\Token\TextToken;
 use Hytmng\MarkupSdk\Token\SpaceToken;
 use Hytmng\MarkupSdk\Token\HashToken;
 use Hytmng\MarkupSdk\Token\AsteriskToken;
+use Hytmng\MarkupSdk\Token\HyphenToken;
 use Hytmng\MarkupSdk\Token\NewlineToken;
 use Hytmng\MarkupSdk\Parser\Parser;
 use Hytmng\MarkupSdk\Parser\TokenStream;
 use Hytmng\MarkupSdk\Ast\Interpreter\Markdown\HeadingInterpreter;
+use Hytmng\MarkupSdk\Ast\Interpreter\Markdown\ListInterpreter;
 use Hytmng\MarkupSdk\Ast\Interpreter\TextInterpreter;
 
 $lexer = new Lexer();
@@ -20,18 +22,21 @@ $lexer->registerTokens([
     new SpaceToken(),
     new HashToken(),
     new AsteriskToken(),
+    new HyphenToken(),
     new NewlineToken(),
 ]);
 
-$input = "# Hello, World!\naaa";
+$input = "# Hello, World!\n- aaa\n* bbb\n- ccc";
+echo "input: $input\n";
 $tokens = $lexer->tokenize($input);
 print_r($tokens);
 echo "--------------------------------\n";
 
 $parser = new Parser();
 $parser->registerInterpreters([
-    new HeadingInterpreter(),
     new TextInterpreter(),
+    new HeadingInterpreter(),
+    new ListInterpreter(),
 ]);
 
 $document = $parser->parse(new TokenStream($tokens));
