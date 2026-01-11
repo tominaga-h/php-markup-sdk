@@ -33,14 +33,38 @@ php-markup-sdk/
 │           ├── HeadingInterpreter.php
 │           └── TextInterpreter.php
 ├── tests/                   # テストディレクトリ
+│   ├── Token/               # トークンテスト
+│   │   ├── AsteriskTokenTest.php
+│   │   ├── NewlineTokenTest.php
+│   │   ├── HashTokenTest.php
+│   │   ├── TextTokenTest.php
+│   │   └── SpaceTokenTest.php
+│   ├── Lexer/               # Lexerテスト
+│   │   └── LexerTest.php
+│   ├── Parser/              # Parserテスト
+│   │   ├── ParserTest.php
+│   │   ├── ParserContextTest.php
+│   │   └── TokenStreamTest.php
+│   ├── Ast/
+│   │   ├── Node/            # Nodeテスト
+│   │   │   ├── HeadingNodeTest.php
+│   │   │   ├── DocumentNodeTest.php
+│   │   │   └── TextNodeTest.php
+│   │   └── Interpreter/     # Interpreterテスト
+│   │       ├── HeadingInterpreterTest.php
+│   │       └── TextInterpreterTest.php
+│   └── Integration/         # 統合テスト
+│       └── MarkupParsingTest.php
 ├── vendor/                  # Composerパッケージ
 ├── composer.json
 ├── composer.lock
 ├── phpunit.xml
+├── coverage.xml             # カバレッジレポート
 ├── Makefile
 ├── Dockerfile
 ├── docker-compose.yml
-└── REAMDE.md               # ※ファイル名にタイポあり（README.md が正しい）
+├── php.ini
+└── README.md
 ```
 
 ## アーキテクチャ概要
@@ -59,3 +83,8 @@ php-markup-sdk/
 - `TokenInterface` ← `AbstractToken` ← 具象Token（HashToken等）
 - `NodeInterface` ← `BaseNode` ← 具象Node（HeadingNode等）
 - `InterpreterInterface` ← 具象Interpreter（HeadingInterpreter等）
+
+## テスト構成
+テストは `tests/` ディレクトリに src/ のディレクトリ構造をミラーリングして配置。
+- 単体テスト: Token, Lexer, Parser, Ast/Node, Ast/Interpreter
+- 統合テスト: Integration/MarkupParsingTest.php
